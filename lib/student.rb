@@ -12,5 +12,13 @@ class Student
     @grade = grade
     @id = id 
   end 
+  
+  def create_table 
+    sql = <<-SQL
+    CREATE TABLE students IF NOT EXISTS
+    SQL
+    
+    DB[:conn].execute(sql)
+  end 
 
 end
