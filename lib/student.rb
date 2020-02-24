@@ -60,16 +60,15 @@ class Student
   end 
   
   def self.new_from_db(arr)
-    new_student = Student.new 
-    @id = arr[0]
-    @name = arr[1]
-    @grade = arr[2] 
+    Student.new(arr[0], arr[1], arr[2]) 
   end 
   
-  def find_by_name(name)
+  def self.find_by_name(name)
     sql = <<-SQL
     SELECT * FROM students WHERE name = ? 
     SQL
-    DB[:conn].execute(sql, self.name)
+    
+    result = DB[:conn].execute(sql, name)[0]
+    Song.new(result[0], result[1], result[2])
   end 
 end
