@@ -38,6 +38,6 @@ class Student
     VALUES (?, ?) 
     SQL
     DB[:conn].execute(sql, self.name, self.grade)
-    @id = DB[:conn].last [0][0]
+    @id = DB[:conn].execute()[0][0]
   end 
 end
