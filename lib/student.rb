@@ -46,4 +46,14 @@ class Student
     new_student.save 
     new_student 
   end 
+  
+  def self.new_from_db(arr)
+    new_student = Student.new 
+    @id = arr[0]
+    @name = arr[1]
+    @grade = arr[2] 
+  end 
+  
+  def find_by_name(name)
+  end 
 end
